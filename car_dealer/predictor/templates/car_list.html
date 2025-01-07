@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars in Predicted Category</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Cars in Predicted Category: {{ category }}</h1>
+        {% if cars %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Puissance</th>
+                        <th>Couleur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for car in cars %}
+                        <tr>
+                            <td>{{ car.nom }}</td>
+                            <td>{{ car.prix }}</td>
+                            <td>{{ car.puissance }}</td>
+                            <td>{{ car.couleur }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No cars available in this category.</p>
+        {% endif %}
+        <a href="/" class="btn btn-primary mt-3">Back to Form</a>
+    </div>
+</body>
+</html>
